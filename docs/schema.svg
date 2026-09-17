@@ -1,26 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 902" role="img">
-<title>Полная схема dev-kit</title>
-<desc>Поток слева сверху вниз: /dev, выбор режима, Lite или Standard/Full, цикл по шагам с возвратами, конец турна, git push, remote. Справа — точки контроля вне модели: UserPromptSubmit, подтверждение человеком, guard.sh, Stop hook, pre-push.</desc>
-<style>
-:root{--tp:#2C2C2A;--tsec:#5F5E5A;--b:#B4B2A9}
-@media(prefers-color-scheme:dark){:root{--tp:#F1EFE8;--tsec:#B4B2A9;--b:#5F5E5A}}
-.t{font:400 14px system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;fill:var(--tp)}
-.th{font:500 14px system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;fill:var(--tp)}
-.ts{font:400 12px system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;fill:var(--tsec)}
-.arr{stroke:var(--b);stroke-width:1.5;fill:none}
-.c-gray rect{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:.5}
-.c-gray .t,.c-gray .th{fill:#444441}
-.c-gray .ts{fill:#5F5E5A}
-.c-teal rect{fill:#E1F5EE;stroke:#0F6E56;stroke-width:.5}
-.c-teal .t,.c-teal .th{fill:#085041}
-.c-teal .ts{fill:#0F6E56}
-.c-coral rect{fill:#FAECE7;stroke:#993C1D;stroke-width:.5}
-.c-coral .t,.c-coral .th{fill:#712B13}
-.c-coral .ts{fill:#993C1D}
-.c-purple rect{fill:#EEEDFE;stroke:#534AB7;stroke-width:.5}
-.c-purple .t,.c-purple .th{fill:#3C3489}
-.c-purple .ts{fill:#534AB7}
-@media(prefers-color-scheme:dark){
+<?xml version="1.0" ?><svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 902" role="img"><style>@media (prefers-color-scheme: dark){
 .c-gray rect{fill:#444441;stroke:#B4B2A9}
 .c-gray .t,.c-gray .th{fill:#D3D1C7}
 .c-gray .ts{fill:#B4B2A9}
@@ -33,51 +11,55 @@
 .c-purple rect{fill:#3C3489;stroke:#AFA9EC}
 .c-purple .t,.c-purple .th{fill:#CECBF6}
 .c-purple .ts{fill:#AFA9EC}
-}
-</style>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+text.t,text.th{fill:#F1EFE8}
+text.ts{fill:#B4B2A9}
+}</style>
+<title>Полная схема dev-kit</title>
+<desc>Поток слева сверху вниз: /dev, выбор режима, Lite или Standard/Full, цикл по шагам с возвратами, конец турна, git push, remote. Справа — точки контроля вне модели: UserPromptSubmit, подтверждение человеком, guard.sh, Stop hook, pre-push.</desc>
 
-<g class="c-gray"><rect x="90" y="40" width="350" height="50" rx="4"/><text class="th" x="265" y="65" text-anchor="middle" dominant-baseline="central">/dev &lt;задача&gt;</text></g>
-<line class="arr" x1="440" y1="65" x2="460" y2="65" marker-end="url(#arrow)"/>
-<g class="c-coral"><rect x="470" y="40" width="170" height="50" rx="4"/><text class="th" x="555" y="57" text-anchor="middle" dominant-baseline="central">UserPromptSubmit</text><text class="ts" x="555" y="76" text-anchor="middle" dominant-baseline="central">ставит замок</text></g>
-<line class="arr" x1="265" y1="90" x2="265" y2="100" marker-end="url(#arrow)"/>
-<g class="c-teal"><rect x="90" y="106" width="350" height="56" rx="4"/><text class="th" x="265" y="126" text-anchor="middle" dominant-baseline="central">Выбор режима</text><text class="ts" x="265" y="146" text-anchor="middle" dominant-baseline="central">объём · риск · автономность</text></g>
-<line class="arr" x1="172" y1="162" x2="172" y2="170" marker-end="url(#arrow)"/>
-<line class="arr" x1="357" y1="162" x2="357" y2="170" marker-end="url(#arrow)"/>
-<g class="c-gray"><rect x="90" y="178" width="165" height="56" rx="4"/><text class="th" x="172" y="198" text-anchor="middle" dominant-baseline="central">Lite</text><text class="ts" x="172" y="218" text-anchor="middle" dominant-baseline="central">без файлов</text></g>
-<g class="c-teal"><rect x="275" y="178" width="165" height="56" rx="4"/><text class="th" x="357" y="198" text-anchor="middle" dominant-baseline="central">Standard / Full</text><text class="ts" x="357" y="218" text-anchor="middle" dominant-baseline="central">SPEC.md, PLAN.md</text></g>
-<line class="arr" x1="440" y1="206" x2="460" y2="206" marker-end="url(#arrow)"/>
-<g class="c-coral"><rect x="470" y="178" width="170" height="56" rx="4"/><text class="th" x="555" y="198" text-anchor="middle" dominant-baseline="central">Ты подтверждаешь</text><text class="ts" x="555" y="218" text-anchor="middle" dominant-baseline="central">только Standard/Full</text></g>
-<line class="arr" x1="172" y1="234" x2="172" y2="256" marker-end="url(#arrow)"/>
-<line class="arr" x1="357" y1="234" x2="357" y2="256" marker-end="url(#arrow)"/>
-<rect x="90" y="266" width="350" height="354" rx="8" fill="none" stroke="var(--b)" stroke-width="0.5" stroke-dasharray="5 4"/>
-<text class="ts" x="106" y="286" dominant-baseline="central">Цикл по шагам · в Lite оркестратор делает всё сам</text>
-<g class="c-purple"><rect x="130" y="298" width="270" height="46" rx="4"/><text class="t" x="265" y="321" text-anchor="middle" dominant-baseline="central">Взять шаг из PLAN.md</text></g>
-<line class="arr" x1="265" y1="344" x2="265" y2="352" marker-end="url(#arrow)"/>
-<g class="c-teal"><rect x="130" y="358" width="270" height="56" rx="4"/><text class="th" x="265" y="378" text-anchor="middle" dominant-baseline="central">implementer · sonnet</text><text class="ts" x="265" y="398" text-anchor="middle" dominant-baseline="central">зовёт explorer · haiku</text></g>
-<line class="arr" x1="265" y1="414" x2="265" y2="422" marker-end="url(#arrow)"/>
-<g class="c-coral"><rect x="130" y="428" width="270" height="46" rx="4"/><text class="t" x="265" y="451" text-anchor="middle" dominant-baseline="central">./verify.sh — аттестация</text></g>
-<path class="arr" d="M 130 451 L 110 451 L 110 376 L 118 376" fill="none" marker-end="url(#arrow)"/>
-<line class="arr" x1="265" y1="474" x2="265" y2="482" marker-end="url(#arrow)"/>
-<g class="c-teal"><rect x="130" y="488" width="270" height="56" rx="4"/><text class="th" x="265" y="508" text-anchor="middle" dominant-baseline="central">reviewer · opus</text><text class="ts" x="265" y="528" text-anchor="middle" dominant-baseline="central">в Full три параллельно</text></g>
-<path class="arr" d="M 130 516 L 100 516 L 100 396 L 118 396" fill="none" marker-end="url(#arrow)"/>
-<line class="arr" x1="265" y1="544" x2="265" y2="552" marker-end="url(#arrow)"/>
-<g class="c-purple"><rect x="130" y="558" width="270" height="46" rx="4"/><text class="t" x="265" y="581" text-anchor="middle" dominant-baseline="central">коммит · [x] · NOTES · LOG</text></g>
-<path class="arr" d="M 400 581 L 420 581 L 420 321 L 412 321" fill="none" marker-end="url(#arrow)"/>
-<line class="arr" x1="440" y1="456" x2="460" y2="456" marker-end="url(#arrow)"/>
-<g class="c-coral"><rect x="470" y="428" width="170" height="56" rx="4"/><text class="th" x="555" y="448" text-anchor="middle" dominant-baseline="central">guard.sh</text><text class="ts" x="555" y="468" text-anchor="middle" dominant-baseline="central">запреты весь цикл</text></g>
-<line class="arr" x1="265" y1="620" x2="265" y2="642" marker-end="url(#arrow)"/>
-<g class="c-gray"><rect x="90" y="650" width="350" height="56" rx="4"/><text class="th" x="265" y="678" text-anchor="middle" dominant-baseline="central">Конец турна</text></g>
-<line class="arr" x1="440" y1="678" x2="460" y2="678" marker-end="url(#arrow)"/>
-<g class="c-coral"><rect x="470" y="650" width="170" height="56" rx="4"/><text class="th" x="555" y="670" text-anchor="middle" dominant-baseline="central">Stop hook</text><text class="ts" x="555" y="690" text-anchor="middle" dominant-baseline="central">сверяет аттестацию</text></g>
-<line class="arr" x1="265" y1="706" x2="265" y2="714" marker-end="url(#arrow)"/>
-<g class="c-gray"><rect x="90" y="722" width="350" height="56" rx="4"/><text class="th" x="265" y="750" text-anchor="middle" dominant-baseline="central">git push</text></g>
-<line class="arr" x1="440" y1="750" x2="460" y2="750" marker-end="url(#arrow)"/>
-<g class="c-coral"><rect x="470" y="722" width="170" height="56" rx="4"/><text class="th" x="555" y="742" text-anchor="middle" dominant-baseline="central">pre-push</text><text class="ts" x="555" y="762" text-anchor="middle" dominant-baseline="central">verify заново</text></g>
-<line class="arr" x1="265" y1="778" x2="265" y2="786" marker-end="url(#arrow)"/>
-<g class="c-gray"><rect x="90" y="794" width="350" height="50" rx="4"/><text class="th" x="265" y="819" text-anchor="middle" dominant-baseline="central">В remote</text></g>
-<g class="c-purple"><rect x="67" y="872" width="10" height="10" rx="2"/></g><text class="ts" x="83" y="877" dominant-baseline="central">оркестратор</text>
-<g class="c-teal"><rect x="180" y="872" width="10" height="10" rx="2"/></g><text class="ts" x="196" y="877" dominant-baseline="central">субагенты</text>
-<g class="c-coral"><rect x="279" y="872" width="10" height="10" rx="2"/></g><text class="ts" x="295" y="877" dominant-baseline="central">контроль извне</text>
-<g class="c-gray"><rect x="413" y="872" width="10" height="10" rx="2"/></g><text class="ts" x="429" y="877" dominant-baseline="central">поток</text>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#B4B2A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<g class="c-gray"><rect x="90" y="40" width="350" height="50" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/><text class="th" x="265" y="65" text-anchor="middle" dominant-baseline="central" fill="#444441" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">/dev &lt;задача&gt;</text></g>
+<line class="arr" x1="440" y1="65" x2="460" y2="65" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-coral"><rect x="470" y="40" width="170" height="50" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/><text class="th" x="555" y="57" text-anchor="middle" dominant-baseline="central" fill="#712B13" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">UserPromptSubmit</text><text class="ts" x="555" y="76" text-anchor="middle" dominant-baseline="central" fill="#993C1D" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">ставит замок</text></g>
+<line class="arr" x1="265" y1="90" x2="265" y2="100" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-teal"><rect x="90" y="106" width="350" height="56" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/><text class="th" x="265" y="126" text-anchor="middle" dominant-baseline="central" fill="#085041" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">Выбор режима</text><text class="ts" x="265" y="146" text-anchor="middle" dominant-baseline="central" fill="#0F6E56" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">объём · риск · автономность</text></g>
+<line class="arr" x1="172" y1="162" x2="172" y2="170" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<line class="arr" x1="357" y1="162" x2="357" y2="170" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-gray"><rect x="90" y="178" width="165" height="56" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/><text class="th" x="172" y="198" text-anchor="middle" dominant-baseline="central" fill="#444441" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">Lite</text><text class="ts" x="172" y="218" text-anchor="middle" dominant-baseline="central" fill="#5F5E5A" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">без файлов</text></g>
+<g class="c-teal"><rect x="275" y="178" width="165" height="56" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/><text class="th" x="357" y="198" text-anchor="middle" dominant-baseline="central" fill="#085041" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">Standard / Full</text><text class="ts" x="357" y="218" text-anchor="middle" dominant-baseline="central" fill="#0F6E56" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">SPEC.md, PLAN.md</text></g>
+<line class="arr" x1="440" y1="206" x2="460" y2="206" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-coral"><rect x="470" y="178" width="170" height="56" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/><text class="th" x="555" y="198" text-anchor="middle" dominant-baseline="central" fill="#712B13" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">Ты подтверждаешь</text><text class="ts" x="555" y="218" text-anchor="middle" dominant-baseline="central" fill="#993C1D" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">только Standard/Full</text></g>
+<line class="arr" x1="172" y1="234" x2="172" y2="256" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<line class="arr" x1="357" y1="234" x2="357" y2="256" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<rect x="90" y="266" width="350" height="354" rx="8" fill="none" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="5 4"/>
+<text class="ts" x="106" y="286" dominant-baseline="central" fill="#5F5E5A" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">Цикл по шагам · в Lite оркестратор делает всё сам</text>
+<g class="c-purple"><rect x="130" y="298" width="270" height="46" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/><text class="t" x="265" y="321" text-anchor="middle" dominant-baseline="central" fill="#3C3489" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="400">Взять шаг из PLAN.md</text></g>
+<line class="arr" x1="265" y1="344" x2="265" y2="352" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-teal"><rect x="130" y="358" width="270" height="56" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/><text class="th" x="265" y="378" text-anchor="middle" dominant-baseline="central" fill="#085041" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">implementer · sonnet</text><text class="ts" x="265" y="398" text-anchor="middle" dominant-baseline="central" fill="#0F6E56" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">зовёт explorer · haiku</text></g>
+<line class="arr" x1="265" y1="414" x2="265" y2="422" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-coral"><rect x="130" y="428" width="270" height="46" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/><text class="t" x="265" y="451" text-anchor="middle" dominant-baseline="central" fill="#712B13" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="400">./verify.sh — аттестация</text></g>
+<path class="arr" d="M 130 451 L 110 451 L 110 376 L 118 376" fill="none" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5"/>
+<line class="arr" x1="265" y1="474" x2="265" y2="482" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-teal"><rect x="130" y="488" width="270" height="56" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/><text class="th" x="265" y="508" text-anchor="middle" dominant-baseline="central" fill="#085041" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">reviewer · opus</text><text class="ts" x="265" y="528" text-anchor="middle" dominant-baseline="central" fill="#0F6E56" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">в Full три параллельно</text></g>
+<path class="arr" d="M 130 516 L 100 516 L 100 396 L 118 396" fill="none" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5"/>
+<line class="arr" x1="265" y1="544" x2="265" y2="552" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-purple"><rect x="130" y="558" width="270" height="46" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/><text class="t" x="265" y="581" text-anchor="middle" dominant-baseline="central" fill="#3C3489" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="400">коммит · [x] · NOTES · LOG</text></g>
+<path class="arr" d="M 400 581 L 420 581 L 420 321 L 412 321" fill="none" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5"/>
+<line class="arr" x1="440" y1="456" x2="460" y2="456" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-coral"><rect x="470" y="428" width="170" height="56" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/><text class="th" x="555" y="448" text-anchor="middle" dominant-baseline="central" fill="#712B13" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">guard.sh</text><text class="ts" x="555" y="468" text-anchor="middle" dominant-baseline="central" fill="#993C1D" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">запреты весь цикл</text></g>
+<line class="arr" x1="265" y1="620" x2="265" y2="642" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-gray"><rect x="90" y="650" width="350" height="56" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/><text class="th" x="265" y="678" text-anchor="middle" dominant-baseline="central" fill="#444441" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">Конец турна</text></g>
+<line class="arr" x1="440" y1="678" x2="460" y2="678" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-coral"><rect x="470" y="650" width="170" height="56" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/><text class="th" x="555" y="670" text-anchor="middle" dominant-baseline="central" fill="#712B13" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">Stop hook</text><text class="ts" x="555" y="690" text-anchor="middle" dominant-baseline="central" fill="#993C1D" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">сверяет аттестацию</text></g>
+<line class="arr" x1="265" y1="706" x2="265" y2="714" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-gray"><rect x="90" y="722" width="350" height="56" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/><text class="th" x="265" y="750" text-anchor="middle" dominant-baseline="central" fill="#444441" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">git push</text></g>
+<line class="arr" x1="440" y1="750" x2="460" y2="750" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-coral"><rect x="470" y="722" width="170" height="56" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/><text class="th" x="555" y="742" text-anchor="middle" dominant-baseline="central" fill="#712B13" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">pre-push</text><text class="ts" x="555" y="762" text-anchor="middle" dominant-baseline="central" fill="#993C1D" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">verify заново</text></g>
+<line class="arr" x1="265" y1="778" x2="265" y2="786" marker-end="url(#arrow)" stroke="#B4B2A9" stroke-width="1.5" fill="none"/>
+<g class="c-gray"><rect x="90" y="794" width="350" height="50" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/><text class="th" x="265" y="819" text-anchor="middle" dominant-baseline="central" fill="#444441" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="500">В remote</text></g>
+<g class="c-purple"><rect x="67" y="872" width="10" height="10" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/></g><text class="ts" x="83" y="877" dominant-baseline="central" fill="#5F5E5A" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">оркестратор</text>
+<g class="c-teal"><rect x="180" y="872" width="10" height="10" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/></g><text class="ts" x="196" y="877" dominant-baseline="central" fill="#5F5E5A" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">субагенты</text>
+<g class="c-coral"><rect x="279" y="872" width="10" height="10" rx="2" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/></g><text class="ts" x="295" y="877" dominant-baseline="central" fill="#5F5E5A" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">контроль извне</text>
+<g class="c-gray"><rect x="413" y="872" width="10" height="10" rx="2" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/></g><text class="ts" x="429" y="877" dominant-baseline="central" fill="#5F5E5A" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="400">поток</text>
 </svg>
