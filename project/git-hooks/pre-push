@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Ставится init-project.sh в .git/hooks/pre-push (локально, в репозиторий не едет).
+# Гоняет проверку ЗАНОВО на настоящем коде — независимо от аттестации,
+# которую записал агент. Вывод уходит тому, кто вызвал push: если это агент,
+# он увидит ошибку прямо в результате команды и починит без твоего участия.
+cd "$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+[ -x ./verify.sh ] || exit 0
+if ! OUT="$(./verify.sh 2>&1)"; then
+  { echo "push отменён: ./verify.sh красный. Почини и повтори."
+    printf '%s\n' "$OUT" | tail -n 30
+  } >&2
+  exit 1
+fi
+exit 0
