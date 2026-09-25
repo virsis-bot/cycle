@@ -24,6 +24,16 @@ BACKSTOP = [
   "форс-пуш (включая refspec +branch). Используй --force-with-lease или вручную"),
  (re.compile(r"\bgit\s+" + GITOPT + r"reset\b[^;&|]*--hard", I),
   "git reset --hard — спроси пользователя"),
+ # стирают незакоммиченную работу молча; git clean -X/-x заодно сносит замок
+ # .claude/dev-mode, потому что он в .gitignore — обычная уборка снимала бы защиту
+ (re.compile(r"\bgit\s+" + GITOPT + r"clean\b(?![^;&|]*\s-(?:-dry-run|[A-Za-z]*n))[^;&|]*\s(?:--force|-[A-Za-z]*f)", I),
+  "git clean -f удаляет неотслеживаемые файлы, а с -X/-x — и замок кита. Сначала git clean -n, остальное — пользователь"),
+ (re.compile(r"\bgit\s+" + GITOPT + r"checkout\b[^;&|]*(?:\s--(?=\s|$)|\s\.(?=\s|$)|\s(?:-f|--force)(?=\s|$))", I),
+  "git checkout -- / . / -f стирает незакоммиченные правки. Закоммить или спроси пользователя"),
+ (re.compile(r"\bgit\s+" + GITOPT + r"restore\b(?![^;&|]*\s(?:--staged|-S)(?=\s|$)(?![^;&|]*\s(?:--worktree|-W)(?=\s|$)))", I),
+  "git restore стирает незакоммиченные правки. Закоммить или спроси пользователя"),
+ (re.compile(r"\bgit\s+" + GITOPT + r"stash\b[^;&|]*\s(?:-a|--all)(?=\s|$)", I),
+  "git stash --all уносит и игнорируемые файлы, включая замок кита"),
  (re.compile(r"\bgit\s+" + GITOPT + r"push\b[^;&|]*--no-verify", I),
   "git push --no-verify отключает проверку перед отправкой. Почини тесты, а не обходи хук"),
 ]

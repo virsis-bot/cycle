@@ -188,6 +188,20 @@ python3 -c "import xml.dom.minidom;xml.dom.minidom.parse('$KIT/docs/schema.svg')
   && ok "M6 docs/schema.svg — валидный XML" || bad "M6 docs/schema.svg" "не парсится"
 grep -q 'prefers-color-scheme' "$KIT/docs/schema.svg" && ok "M7 схема работает в тёмной теме" || bad "M7 тёмная тема" "нет медиазапроса"
 
+echo "── git: стирание работы и снос замка ──"
+newproj; lock
+for c in "git clean -fdX" "git clean -fdx" "git clean -f" "git clean --force -d" "true; git clean -fdX" \
+         "git checkout -- ." "git checkout ." "git checkout -- src/app.py" "git checkout -f main" \
+         "git restore ." "git restore src/app.py" "git restore --staged --worktree src/app.py" \
+         "git stash -a" "git stash --all"; do
+  B "K $c" "{\"tool_name\":\"Bash\",\"tool_input\":{\"command\":\"$c\"}}"
+done
+for c in "git clean -n" "git clean -nd" "git checkout main" "git checkout -b feat" \
+         "git restore --staged src/app.py" "git stash" "git stash -u" "git stash pop"; do
+  A "K $c" "{\"tool_name\":\"Bash\",\"tool_input\":{\"command\":\"$c\"}}"
+done
+A "K коммит с текстом про clean" '{"tool_name":"Bash","tool_input":{"command":"git commit -m \"docs: git clean -fdX опасен\""}}'
+
 echo
 echo "итог: ok=$PASS  fail=$FAIL"
 [ "$FAIL" -eq 0 ]

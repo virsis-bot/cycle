@@ -97,6 +97,7 @@ Sonnet выполняет. Или `/model opus`, если бюджет позв�
 | verify-stop.sh | завершение при незакрытых пунктах PLAN.md |
 | pre-push | отправку в remote при красном `verify.sh` — проверка гоняется заново, а не по аттестации |
 | guard.sh | `git push --no-verify` и запись в `.git/hooks/` — иначе pre-push снимается одной командой |
+| guard.sh | `git clean -f`, `git checkout -- .`, `git restore`, `git stash --all` — стирают незакоммиченную работу, а `git clean -X` ещё и сносит замок из `.gitignore` |
 
 ## Обучение
 
