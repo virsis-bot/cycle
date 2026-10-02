@@ -18,7 +18,8 @@
 cycle/
 ├── install.sh              ← установка скилла и агентов (один раз)
 ├── init-project.sh         ← подключение проекта (в каждом проекте)
-├── test/test-kit.sh        ← 30 тестов на хуки; запускать после правок кита
+├── tests/run.sh            ← 113 проверок на хуки; запускать после правок кита
+├── docs/                   ← SPEC.md — спецификация кита, schema.svg — схема
 ├── global/                 → копируется в ~/.claude/
 │   ├── skills/dev/SKILL.md   команда /dev: режимы Lite/Standard/Full
 │   ├── skills/dev/full.md    детали Full (грузится только в Full)
@@ -30,13 +31,14 @@ cycle/
     ├── CLAUDE.md             короткий шаблон (≤60 строк)
     ├── verify.sh             единая проверка, выводит только ошибки
     ├── stats.sh              зеркало по LOG.md: где цикл буксует
-    └── .claude/hooks/
     ├── git-hooks/pre-push    проверка перед отправкой в remote
-    └── .claude/hooks/
-        ├── verify-stop.sh    Stop hook: не даёт закончить с красным verify
-        ├── dev-mode.sh       UserPromptSubmit: включает режим по /dev
-        ├── fingerprint.sh    отпечаток исходников
-        └── guard.sh          запреты: rm -rf, force-push, .env, тесты, замок
+    └── .claude/
+        ├── settings.dev-kit.json  регистрация хуков, сливается в settings.json
+        └── hooks/
+            ├── verify-stop.sh    Stop hook: не даёт закончить с красным verify
+            ├── dev-mode.sh       UserPromptSubmit: включает режим по /dev
+            ├── fingerprint.sh    отпечаток исходников (логика в fingerprint.py)
+            └── guard.sh          запреты: rm -rf, force-push, .env, тесты, замок (логика в guard.py)
 ```
 
 ## Установка (один раз)
@@ -75,14 +77,14 @@ CLAUDE.md и verify.sh не перезаписываются. Изменённы
 /dev full переписать синхронизацию заказов
 ```
 
-- Lite — сразу делает, но план пишет в PLAN.md. Standard/Full — ждут «ок».
+- Lite — сразу делает, файлов после себя не оставляет. Standard/Full — запрашивают «ок» и до ответа код не меняют.
 - Дальше работает Stop hook. Он отпускает, только когда `./verify.sh` зелёный
   **и** в PLAN.md нет незакрытых `- [ ]` (кроме помеченных `BLOCKED`).
 - Замок `.claude/dev-mode` снимает сам хук. Агенту он недоступен — guard.sh
   блокирует и правку файла, и `rm` через shell, и `chmod -x verify.sh`.
 
-Модель главной сессии (оркестратора): `/model opusplan` — Opus планирует,
-Sonnet выполняет. Или `/model opus`, если бюджет позволяет.
+Модель главной сессии (оркестратора): `/model fable` или `/model opus`.
+Модели агентов закреплены в их определениях и от главной сессии не зависят.
 
 ## Что именно ловят хуки
 
@@ -121,7 +123,7 @@ Sonnet выполняет. Или `/model opus`, если бюджет позв�
 |---|---|
 | Скилл | `disable-model-invocation: true` — тело грузится только по `/dev` |
 | Full | детали в `full.md`, читаются только в Full |
-| Агенты | исполнитель sonnet, поиск haiku, ревью opus; отчёты ≤10–15 строк |
+| Агенты | исполнитель sonnet (effort medium), поиск haiku, ревью opus (effort high); отчёты — только выводы, без дампов и пересказа диффа |
 | Stop hook | не гоняет verify повторно, если состояние кода не менялось с зелёного |
 | Stop hook | максимум 3 блокировки подряд, дальше сам пишет BLOCKED и отпускает |
 | verify.sh | печатает только упавшие проверки, хвост 25 строк |
@@ -131,7 +133,7 @@ Sonnet выполняет. Или `/model opus`, если бюджет позв�
 
 | Действие | Команда |
 |---|---|
-| Снять замок досрочно | `rm .claude/dev-mode` (только вы, из терминала) |
+| Снять замок досрочно | `/dev off` в сессии или `rm .claude/dev-mode` из терминала |
 | Разрешить правку тестов (Full) | `rm .claude/protect-tests` |
 | Сбросить счётчик попыток | `rm .claude/.stop-attempts` |
 | Заставить перепроверить всё | `rm .claude/.verify-green` |
