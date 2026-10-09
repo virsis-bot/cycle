@@ -25,7 +25,8 @@ cycle/
 │   ├── skills/dev/full.md    детали Full (грузится только в Full)
 │   └── agents/
 │       ├── implementer.md    исполнитель — sonnet
-│       ├── reviewer.md       ревьюер, только чтение — opus
+│       ├── reviewer.md       ревьюер, только чтение — opus, effort medium
+│       ├── reviewer-deep.md  то же для Full и рискованных задач — effort high
 │       └── explorer.md       поиск по коду — haiku
 └── project/                → копируется в корень проекта
     ├── CLAUDE.md             короткий шаблон (≤60 строк)
@@ -123,7 +124,7 @@ CLAUDE.md и verify.sh не перезаписываются. Изменённы
 |---|---|
 | Скилл | `disable-model-invocation: true` — тело грузится только по `/dev` |
 | Full | детали в `full.md`, читаются только в Full |
-| Агенты | исполнитель sonnet (effort medium), поиск haiku, ревью opus (effort high); отчёты — только выводы, без дампов и пересказа диффа |
+| Агенты | исполнитель sonnet (effort medium), поиск haiku, ревью opus: обычное на effort medium, для Full и рискованных задач — `reviewer-deep` на high, выбирает скилл; отчёты — только выводы, без дампов и пересказа диффа |
 | Stop hook | не гоняет verify повторно, если состояние кода не менялось с зелёного |
 | Stop hook | максимум 3 блокировки подряд, дальше сам пишет BLOCKED и отпускает |
 | verify.sh | печатает только упавшие проверки, хвост 25 строк |
@@ -143,7 +144,7 @@ CLAUDE.md и verify.sh не перезаписываются. Изменённы
 ## Удаление
 
 ```bash
-rm -rf ~/.claude/skills/dev ~/.claude/agents/{implementer,reviewer,explorer}.md
+rm -rf ~/.claude/skills/dev ~/.claude/agents/{implementer,reviewer,reviewer-deep,explorer}.md
 ```
 
 В проекте: удалить `.claude/hooks/verify-stop.sh`, `guard.sh` и блок `hooks` в `.claude/settings.json`.
