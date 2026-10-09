@@ -49,7 +49,7 @@ git clone https://github.com/virsis-bot/cycle.git ~/cycle
 bash ~/cycle/install.sh
 ```
 
-Ставит скилл `/dev` и трёх агентов в `~/.claude`. Существующие файлы с теми же
+Ставит скилл `/dev` и четырёх агентов в `~/.claude`. Существующие файлы с теми же
 именами сохраняются как `*.bak.<дата>`. Обновление потом — `git pull` и тот же
 `install.sh`.
 
