@@ -74,6 +74,15 @@ newproj; ups "/dev починить кнопку"
 ups "/dev off"; [ -f .claude/dev-mode ] && bad "U2 /dev off снимает" "остался" || ok "U2 /dev off снимает"
 newproj; ups "просто вопрос"
 [ -f .claude/dev-mode ] && bad "U3 обычный промпт не ставит" "поставил" || ok "U3 обычный промпт не ставит"
+newproj; ups "/dev off by one in parser"
+[ -f .claude/dev-mode ] && ok "U4 /dev off <текст> — обычная задача" || bad "U4 /dev off <текст> — обычная задача" "замок не поставлен"
+for p in "/dev  off" "/dev OFF" "/dev off " "/dev\toff"; do
+  newproj; lock; touch .claude/protect-tests; ups "$p"
+  [ -f .claude/dev-mode ] && bad "U5 [$p] снимает замок" "остался" || ok "U5 [$p] снимает замок"
+  [ -f .claude/protect-tests ] && bad "U6 [$p] снимает protect-tests" "остался" || ok "U6 [$p] снимает protect-tests"
+done
+newproj; ups "/devx"
+[ -f .claude/dev-mode ] && bad "U7 /devx не ставит" "поставил" || ok "U7 /devx не ставит"
 
 echo "── ОБХОДЫ из ревью (должны быть закрыты) ──"
 newproj; lock
