@@ -66,7 +66,7 @@ with os.fdopen(fd, "w") as f:
     json.dump(cur, f, indent=2, ensure_ascii=False)
     f.write("\n")
 os.replace(tmp, dst)
-print("✓ .claude/settings.json (хуки Stop + PreToolUse)")
+print("✓ .claude/settings.json (хуки Stop + PreToolUse + UserPromptSubmit)")
 PY
 
 # Служебные файлы — в .gitignore
